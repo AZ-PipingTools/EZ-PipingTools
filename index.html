@@ -424,11 +424,11 @@ $('calcPipeGeo').onclick=()=>{let od=nv('pipeOD'),t=nv('pipeT'),L=nv('pipeLen'),
 $('calcMass').onclick=()=>{let cm3=nv('massV'),rho=nv('density');$('massRes').innerHTML=`Masse = ${gfmt(cm3/1000*rho)} kg`};
 function miterInputs(){
   const alpha=nv('miterA'), rawN=nv('miterN'), R=nv('miterR'), D=nv('miterD');
-  const n=Math.max(0,Math.min(12,Math.round(rawN)));
+  const n=Math.max(0,Math.min(48,Math.round(rawN)));
   const full=alpha/(n+1), half=full/2;
   let error='';
   if(!(alpha>0&&alpha<=180)) error='Gesamtwinkel α muss größer 0° und maximal 180° sein.';
-  else if(!(rawN>=0&&rawN<=12)) error='Vollsegmente müssen zwischen 0 und 12 liegen.';
+  else if(!(rawN>=0&&rawN<=48)) error='Vollsegmente müssen zwischen 0 und 48 liegen.';
   else if(!(R>0)) error='Centerline-Radius R muss größer 0 mm sein.';
   else if(!(D>0)) error='Rohr-Außen-Ø D muss größer 0 mm sein.';
   else if(D>=2*R) error='Keine gültige Geometrie: Rohr-Außen-Ø D muss kleiner als 2 × Centerline-Radius R sein.';
